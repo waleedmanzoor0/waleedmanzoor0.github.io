@@ -85,8 +85,8 @@
       margin:0 0 22px; font-size:1.9rem;
       font-weight:600; color:#333333; /* dark grey */
       letter-spacing:.3px; text-shadow:1px 1px 3px rgba(0,0,0,.12);
-      opacity: 0;
-      transform: translateY(20px);
+      opacity: 1;  /* always visible */
+      transform: translateY(0); /* no translation */
       transition: all 0.8s ease-out;
     }
 
@@ -267,15 +267,6 @@
       });
     }, { threshold: 0.12 });
     cards.forEach(card => observer.observe(card));
-
-    /* Reveal headings on scroll */
-    const headings = document.querySelectorAll('.section h2');
-    const headingObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) entry.target.classList.add('show');
-      });
-    }, { threshold: 0.2 });
-    headings.forEach(h => headingObserver.observe(h));
   </script>
 </body>
 </html>
