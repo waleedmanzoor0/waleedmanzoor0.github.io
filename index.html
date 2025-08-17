@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Waleed Manzoor - Portfolio</title>
+  <style>
+    /* ===== Theme ===== */
+    :root{
+      --panel: rgba(255,255,255,0.88);  /* glass card bg */
+      --text: #111;
+      --muted:#444;
+      --accent:#0077b6;
+      --shadow: rgba(0,0,0,0.25);
+    }
+    *{ box-sizing:border-box; }
+
+    /* ===== Full-page background with overlay ===== */
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      color:var(--text);
+      line-height:1.6;
+
+      background: url("background.jpg") no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+    body::before {
+      content:"";
+      position: fixed;
+      top:0; left:0; right:0; bottom:0;
+      background: rgba(255,255,255,0.55); /* ✅ soft overlay */
+      backdrop-filter: blur(2px);
+      z-index:0;
+    }
+
+    /* Content always above overlay */
+    header, section, footer { position: relative; z-index: 1; }
+
+    /* ===== Header ===== */
+    header{
+      text-align:center;
+      background: url("picture.jpg") no-repeat center center/cover;
+      padding:60px 20px 50px;
+      border-bottom:3px solid var(--accent);
+      position:relative;
+    }
+    .avatar{
+      width:180px; height:180px; border-radius:50%;
+      object-fit:cover;
+      border:3px solid var(--accent);
+      box-shadow:0 6px 16px var(--shadow);
+      display:block; margin:0 auto 18px;
+    }
+    header h1{
+      margin:0; font-size:2.8rem; color:var(--accent);
+      font-weight:700; letter-spacing:.5px;
+    }
+    header p{
+      margin:10px 0 0; color:var(--muted);
+      font-style:italic; font-size:1.05rem;
+    }
+
+    /* ===== Sections ===== */
+    .section{ padding:60px 20px; text-align:center; }
+    .section h2{
+      margin:0 0 22px; font-size:1.9rem;
+      font-weight:600; color:var(--accent);
+      letter-spacing:.3px; text-shadow:1px 1px 3px rgba(0,0,0,.12);
+    }
+
+    /* ===== Cards ===== */
+    .card{
+      background:var(--panel);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      width:85%; max-width:900px;
+      margin:26px auto; padding:28px 30px;
+      border:.5px solid var(--accent);
+      border-radius:12px;
+      box-shadow:0 4px 12px var(--shadow);
+      text-align:left; line-height:1.8;
+
+      opacity:0; transform: translateY(40px);
+      transition: all .8s ease-out;
+    }
+    .card.show{ opacity:1; transform: translateY(0); }
+
+    .card h3{ margin:0 0 8px; font-weight:600; }
+    .card ul{ margin:8px 0 0 18px; }
+    .card li{ margin:6px 0; }
+
+    /* Links */
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    /* Footer */
+    footer{
+      text-align:center; padding:20px;
+      background: rgba(255,255,255,0.9);
+      border-top:3px solid var(--accent);
+      color:#333; font-size:.95rem;
+    }
+
+    /* Mobile */
+    @media (max-width:520px){
+      .avatar{ width:140px; height:140px; }
+      header h1{ font-size:2.1rem; }
+      .card{ width:92%; padding:22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img src="profile.jpeg" alt="Waleed Manzoor" class="avatar" />
+    <h1>Waleed Manzoor</h1>
+    <p>B.Sc. (Hons) Pharmaceutical and Cosmetic Sciences | Aspiring Pharmaceutical Professional</p>
+  </header>
+
+  <!-- SUMMARY -->
+  <section id="summary" class="section">
+    <h2>Summary</h2>
+    <div class="card">
+      <p>
+        From an early age I have had an interest in the pharmaceutical industry, working in a clinic as my first job
+        and now pursuing a B.Sc. in Pharmaceutical and Cosmetic Sciences. I am eager to build a career in the
+        pharmaceutical sector, applying regulations and guidelines while contributing to innovation. Strong communication
+        skills, quick learning ability, and a proactive mindset define my work ethic.
+      </p>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section">
+    <h2>Education</h2>
+    <div class="card">
+      <ul>
+        <li><strong>2023 – Present:</strong> B.Sc. (Hons) Pharmaceutical and Cosmetic Sciences, De Montfort University, Leicester</li>
+        <li><strong>2022 – 2023:</strong> International Year Zero (IYZ) in Pharmacy, De Montfort University, Leicester</li>
+        <li><strong>2015 – 2018:</strong> Govt. Graduate College Jhelum, Pakistan — A-Levels (Biology, Chemistry, Physics)</li>
+        <li><strong>2013 – 2015:</strong> The Saracens School — GCSEs</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <h2>Professional Experience</h2>
+
+    <div class="card">
+      <h3>Pharmacy Assistant — Medina Chemist, Nottingham <span>(Jun 2024 – Sep 2024, Jun 2025 – Present)</span></h3>
+      <ul>
+        <li>Managed stock, ordering, and inventory control.</li>
+        <li>Conducted health checks (diabetes, blood pressure, BMI).</li>
+        <li>Advised patients on OTC medicines, multivitamins, creams, shampoos, and personal care products.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Pharmacy Assistant — Asim’s Chemist, Nottingham <span>(Jun 2023 – Sep 2023)</span></h3>
+      <ul>
+        <li>Supported pharmacy operations including stock rotation and inventory management.</li>
+        <li>Assisted patients with product guidance, developing strong communication skills.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Warehouse Operative — Howard Tenens, Ashby-de-la-Zouch <span>(Jan 2025 – Jun 2025)</span></h3>
+      <ul>
+        <li>Picked, packed, and safely stacked dog food products to meet daily targets.</li>
+        <li>Loaded pallets and maintained health & safety compliance.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Sales Consultant — Makkah Food Store, Nottingham <span>(Jun 2024 – Oct 2024)</span></h3>
+      <ul>
+        <li>Worked with distributors and warehouses to arrange product sales.</li>
+        <li>Built customer communication and warehouse coordination experience.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Warehouse Operative & Sorter — Royal Mail, Northampton <span>(Nov 2023 – Jan 2024)</span></h3>
+      <ul>
+        <li>Tracked missing parcels, liaised with couriers, logged findings, and created codes.</li>
+        <li>Provided feedback and supported workflow improvements.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <div class="card">
+      <ul>
+        <li>Microsoft Word, Excel, PowerPoint</li>
+        <li>Academic writing, data analysis, lab documentation</li>
+        <li>Quick learner of new systems and software</li>
+        <li>Customer service & product recommendation</li>
+        <li>Team collaboration and staff training</li>
+        <li>Strong written & verbal communication</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- HOBBIES -->
+  <section id="hobbies" class="section">
+    <h2>Hobbies & Interests</h2>
+    <div class="card">
+      <p>
+        I balance academic commitments with an active lifestyle. I regularly play football and go to the gym, which
+        helps me meet new people and develop teamwork and leadership—having captained local teams and competed
+        successfully.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>Email: <a href="mailto:muhammadwaleedxd@gmail.com">muhammadwaleedxd@gmail.com</a></p>
+      <p>Phone: 07928551417</p>
+      <p>Address: Flat R1031, Liberty Park, 101 Raw Dykes Road, Leicester, LE2 7FP, UK</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Waleed Manzoor. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    /* Reveal cards on scroll */
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+    }, { threshold: 0.12 });
+    cards.forEach(card => observer.observe(card));
+  </script>
+</body>
+</html>
