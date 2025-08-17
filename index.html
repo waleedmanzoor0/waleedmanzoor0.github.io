@@ -10,7 +10,6 @@
       --panel: rgba(255,255,255,0.88);  /* glass card bg */
       --text: #111;
       --muted:#444;
-      --accent:#0077b6; /* not used now for dark grey theme */
       --shadow: rgba(0,0,0,0.25);
     }
     *{ box-sizing:border-box; }
@@ -56,9 +55,14 @@
       margin:0; font-size:2.8rem; color:#333333; /* dark grey */
       font-weight:700; letter-spacing:.5px;
     }
-    header p{
-      margin:10px 0 0; color:var(--muted);
-      font-style:italic; font-size:1.05rem;
+    .header-subtitle {
+      margin:10px 0 0;
+      color: var(--muted);
+      font-style: italic;
+      font-size: 1.05rem;
+      border-bottom: 2px solid #333333; /* dark grey line */
+      padding-bottom: 8px;
+      display: inline-block;
     }
 
     /* ===== Sections ===== */
@@ -91,7 +95,7 @@
     .card li{ margin:6px 0; }
 
     /* Links */
-    a{ color:var(--accent); text-decoration:none; }
+    a{ color:#0077b6; text-decoration:none; }
     a:hover{ text-decoration:underline; }
 
     /* Footer */
@@ -116,7 +120,7 @@
   <header>
     <img src="profile.jpeg" alt="Waleed Manzoor" class="avatar" />
     <h1>Waleed Manzoor</h1>
-    <p>Final Year Student of Pharmaceutical and Cosmetic Science BSc at De Montfort University, Leicester</p>
+    <p class="header-subtitle">Final Year Student of Pharmaceutical and Cosmetic Science BSc at De Montfort University, Leicester</p>
   </header>
 
   <!-- SUMMARY -->
