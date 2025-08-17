@@ -33,7 +33,6 @@
       z-index:0;
     }
 
-    /* Content always above overlay */
     header, section, footer { position: relative; z-index: 1; }
 
     /* ===== Header ===== */
@@ -43,18 +42,33 @@
       padding:60px 20px 50px;
       border-bottom:3px solid #333333; /* dark grey */
       position:relative;
+      animation: headerFade 8s ease-in-out infinite alternate;
     }
+
+    @keyframes headerFade {
+      0% { background-position: center top; opacity:0.95; }
+      50% { background-position: center center; opacity:1; }
+      100% { background-position: center bottom; opacity:0.95; }
+    }
+
     .avatar{
-      width:180px; height:180px; border-radius:50%;
+      width:180px; 
+      height:180px; 
+      border-radius:12px; /* square with rounded corners */
       object-fit:cover;
       border:3px solid #333333; /* dark grey */
       box-shadow:0 6px 16px var(--shadow);
-      display:block; margin:0 auto 18px;
+      display:block; 
+      margin:0 auto 18px;
+      transition: transform 0.5s ease; /* avatar hover zoom */
     }
+    .avatar:hover { transform: scale(1.05); }
+
     header h1{
       margin:0; font-size:2.8rem; color:#333333; /* dark grey */
       font-weight:700; letter-spacing:.5px;
     }
+
     .header-subtitle {
       margin:10px 0 0;
       color: var(--muted);
@@ -71,6 +85,9 @@
       margin:0 0 22px; font-size:1.9rem;
       font-weight:600; color:#333333; /* dark grey */
       letter-spacing:.3px; text-shadow:1px 1px 3px rgba(0,0,0,.12);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
     }
 
     /* ===== Cards ===== */
@@ -80,23 +97,31 @@
       -webkit-backdrop-filter: blur(6px);
       width:85%; max-width:900px;
       margin:26px auto; padding:28px 30px;
-      border:.5px solid #333333; /* dark grey */
+      border:.5px solid #333333; 
       border-radius:12px;
       box-shadow:0 4px 12px var(--shadow);
       text-align:left; line-height:1.8;
-
-      opacity:0; transform: translateY(40px);
-      transition: all .8s ease-out;
+      opacity:0; 
+      transform: translateY(50px);
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .card.show{ opacity:1; transform: translateY(0); }
+    .card.show{
+      opacity:1; 
+      transform: translateY(0);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
 
     .card h3{ margin:0 0 8px; font-weight:600; color:#333333; /* dark grey */ }
     .card ul{ margin:8px 0 0 18px; }
     .card li{ margin:6px 0; }
 
     /* Links */
-    a{ color:#0077b6; text-decoration:none; }
-    a:hover{ text-decoration:underline; }
+    a{ color:#0077b6; text-decoration:none; transition: color 0.3s ease; }
+    a:hover{ color:#005f86; text-decoration:underline; }
 
     /* Footer */
     footer{
@@ -230,12 +255,27 @@
   </footer>
 
   <script>
-    /* Reveal cards on scroll */
+    /* Reveal cards on scroll with cascading effect */
     const cards = document.querySelectorAll('.card');
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('show');
+          }, index * 150);
+        }
+      });
     }, { threshold: 0.12 });
     cards.forEach(card => observer.observe(card));
+
+    /* Reveal headings on scroll */
+    const headings = document.querySelectorAll('.section h2');
+    const headingObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.2 });
+    headings.forEach(h => headingObserver.observe(h));
   </script>
 </body>
 </html>
