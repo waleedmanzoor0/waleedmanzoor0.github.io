@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <title>Waleed Manzoor - Portfolio</title>
    <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.png">
@@ -15,6 +17,9 @@
       --shadow: rgba(0,0,0,0.25);
     }
     *{ box-sizing:border-box; }
+
+
+
 
     /* ===== Full-page background with overlay ===== */
     body{
@@ -94,7 +99,7 @@
 
 
     /* ===== Sections ===== */
-    .section{ padding:60px 20px; text-align:center; }
+    .section{ padding:25px 20px; text-align:center; }
     .section h2{
       margin:0 0 22px; font-size:1.9rem;
       font-weight:600; color:#333333; /* dark grey */
@@ -119,6 +124,8 @@
       transform: translateY(50px);
       transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
     }
+
+
     .card.show{
       opacity:1; 
       transform: translateY(0);
@@ -139,11 +146,17 @@
 
     /* Footer */
     footer{
-      text-align:center; padding:20px;
-      background: rgba(255,255,255,0.9);
-      border-top:3px solid #333333; /* dark grey */
-      color:#333333; font-size:.95rem;
-    }
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(245,245,245,0.9), rgba(220,220,220,0.9));
+  border-top: 3px solid #333333;
+  color: #333333;
+  font-size: 0.95rem;
+  backdrop-filter: blur(4px);
+  position: relative;
+  z-index: 1;
+
+}
 
     /* Mobile */
     @media (max-width:520px){
@@ -151,6 +164,29 @@
       header h1{ font-size:2.1rem; }
       .card{ width:92%; padding:22px; }
     }
+
+
+/* Colored and interactive icons in contact card */
+#contact .card i {
+  margin-right: 10px;
+  font-size: 1.5rem;          /* slightly bigger */
+  vertical-align: middle;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  cursor: default;
+}
+
+/* Individual icon colors */
+#contact .card .fa-envelope { color: #EA4335; }   /* Gmail red */
+#contact .card .fa-linkedin { color: #0A66C2; }  /* LinkedIn blue */
+#contact .card .fa-phone { color: #34A853; }     /* green */
+
+/* Hover effect for subtle interactivity */
+#contact .card i:hover {
+  transform: scale(1.2);      /* slightly enlarge */
+  opacity: 0.85;              /* subtle fade */
+}
+
+
   </style>
 </head>
 <body>
@@ -256,9 +292,9 @@
   <section id="contact" class="section">
     <h2>Contact</h2>
     <div class="card">
-      <p>Email: <a href="mailto:muhammadwaleedxd@gmail.com">muhammadwaleedxd@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/waleed-manzoor-7568971ba" target="_blank" rel="noopener noreferrer">Waleed Manzoor</a></p>
-      <p>Phone: 07928551417</p>
+        <p><i class="fas fa-envelope"></i> My Email: <a href="mailto:muhammadwaleedxd@gmail.com">muhammadwaleedxd@gmail.com</a></p>
+  <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/waleed-manzoor-7568971ba" target="_blank" rel="noopener noreferrer">Waleed Manzoor</a></p>
+  <p><i class="fas fa-phone"></i> 07928551417</p>
     </div>
   </section>
 
