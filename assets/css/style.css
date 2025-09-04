@@ -1283,9 +1283,8 @@ textarea.form-input::-webkit-resizer { display: none; }
     width: 120px;
     height: 120px;
   }
-}
 
-  :root {
+	  :root {
 
     /**
      * typography
@@ -1300,6 +1299,9 @@ textarea.form-input::-webkit-resizer { display: none; }
     --fs-8: 12px;
 
   }
+
+}
+
 
 
 
